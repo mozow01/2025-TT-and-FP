@@ -1,6 +1,6 @@
 # 2025-TT-and-FP
 
-Tárgykövetelmény: https://github.com/mozow01/2025-TT-and-FP/blob/main/2025_t%C3%ADpuselm%C3%A9let.pdf
+[Tárgykövetelmény](https://github.com/mozow01/2025-TT-and-FP/blob/main/2025_t%C3%ADpuselm%C3%A9let.pdf)
 
 Tárgylap: https://www.ttk.bme.hu/BMETEAGBsMTEFP-00
 
