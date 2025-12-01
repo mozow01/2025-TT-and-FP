@@ -95,7 +95,25 @@ Definition szorzas_engine (l : list nat) : nat :=
   (callCC (fun exit => szorzas_machine l exit)) 
   (fun n => n). 
   
-  (* fun k => (szorzas_machine l (fun x => fun _ignored_continuation => k x) ) k  *)
+  (* szorzas_engine l =
+  
+     (callCC (fun exit => szorzas_machine l exit)) (fun n => n) =
+     
+     ((fun exit => szorzas_machine l exit) (fun x => fun _ignored_continuation => k x)) (fun n => n) =
+     
+     ((fun exit => szorzas_machine l exit) (fun x => fun _ignored_continuation => (fun n => n) x))  =
+     
+     ((fun exit => szorzas_machine l exit) (fun x => fun _ignored_continuation => x)) =
+     
+     szorzas_machine l (fun x => fun _ignored_continuation => x) 
+     
+     ahol exit = (fun x => fun _ignored_continuation => x) meg van hívva, vagyis a 0 :: _ => exit 0 sorban, ott ez utóbbi miatt 
+     
+     exit 0 = (fun x => fun _ignored_continuation => x) 0 = 0 -t ad vissza a szorzás
+     
+     egyébként visszaküldi az egyel kevésbé bonyolultabb rekurzív szintre.
+     
+  *)
 
 Compute (szorzas_engine [1; 2; 3; 4]). 
 
